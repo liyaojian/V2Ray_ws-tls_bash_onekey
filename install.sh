@@ -308,7 +308,7 @@ ssl_install(){
     judge "安装 SSL 证书生成脚本"
 }
 domain_check(){
-    read -p "请输入你的域名信息(eg:www.liyaojian.com):" domain
+    read -p "请输入你的域名信息(eg:www.wulabing.com):" domain
     domain_ip=`ping ${domain} -c 1 | sed '1{s/[^(]*(//;s/).*//;q}'`
     echo -e "${OK} ${GreenBG} 正在获取 公网ip 信息，请耐心等待 ${Font}"
     local_ip=`curl -4 ip.sb`
@@ -449,7 +449,7 @@ vmess_qr_config(){
     cat >/etc/v2ray/vmess_qr.json <<-EOF
 {
   "v": "2",
-  "ps": "liyaojian_${domain}",
+  "ps": "v2ray_ws_tls_${domain}",
   "add": "${domain}",
   "port": "${port}",
   "id": "${UUID}",
