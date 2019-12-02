@@ -190,7 +190,7 @@ port_alterid_set(){
 }
 modify_port_UUID(){
     let PORT=$RANDOM+10000
-    UUID= "578d599d-6528-4012-985f-3e45b7bb2945"
+    UUID="578d599d-6528-4012-985f-3e45b7bb2945"
     sed -i "/\"port\"/c  \    \"port\":${PORT}," ${v2ray_conf}
     sed -i "/\"id\"/c \\\t  \"id\":\"${UUID}\"," ${v2ray_conf}
     sed -i "/\"alterId\"/c \\\t  \"alterId\":${alterID}" ${v2ray_conf}
