@@ -1,3 +1,6 @@
+## BBR 安装
+`wget -N --no-check-certificate "https://raw.githubusercontent.com/chiakge/Linux-NetSpeed/master/tcp.sh" && chmod +x tcp.sh && ./tcp.sh`
+
 ## V2Ray 基于 Nginx 的 vmess+ws+tls 一键安装脚本
 
 > 感谢 JetBrains 提供的非商业开源软件开发授权
