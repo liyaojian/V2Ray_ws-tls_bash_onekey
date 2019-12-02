@@ -36,7 +36,7 @@ nginx_version="1.16.1"
 openssl_version="1.1.1d"
 
 #生成伪装路径
-camouflage='3c11a7d5'
+camouflage="3c11a7d5"
 
 source /etc/os-release
 
