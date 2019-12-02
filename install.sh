@@ -36,7 +36,7 @@ nginx_version="1.16.1"
 openssl_version="1.1.1d"
 
 #生成伪装路径
-camouflage=`cat /dev/urandom | head -n 10 | md5sum | head -c 8`
+camouflage='3c11a7d5'
 
 source /etc/os-release
 
@@ -185,12 +185,12 @@ basic_optimization(){
 port_alterid_set(){
     read -p "请输入连接端口（default:443）:" port
     [[ -z ${port} ]] && port="443"
-    read -p "请输入alterID（default:2 仅允许填数字）:" alterID
-    [[ -z ${alterID} ]] && alterID="2"
+    read -p "请输入alterID（default:10 仅允许填数字）:" alterID
+    [[ -z ${alterID} ]] && alterID="10"
 }
 modify_port_UUID(){
     let PORT=$RANDOM+10000
-    UUID=$(cat /proc/sys/kernel/random/uuid)
+    UUID= "578d599d-6528-4012-985f-3e45b7bb2945"
     sed -i "/\"port\"/c  \    \"port\":${PORT}," ${v2ray_conf}
     sed -i "/\"id\"/c \\\t  \"id\":\"${UUID}\"," ${v2ray_conf}
     sed -i "/\"alterId\"/c \\\t  \"alterId\":${alterID}" ${v2ray_conf}
