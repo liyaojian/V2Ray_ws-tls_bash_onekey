@@ -575,7 +575,7 @@ main(){
     nginx_systemd
     show_information
     start_process_systemd
-    acme_cron_update
+#    acme_cron_update
 }
 list(){
     case $1 in
