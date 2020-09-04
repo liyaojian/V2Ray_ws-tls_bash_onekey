@@ -22,6 +22,7 @@ Info="${Green}[信息]${Font}"
 OK="${Green}[OK]${Font}"
 Error="${Red}[错误]${Font}"
 
+github_branch="master"
 v2ray_conf_dir="/etc/v2ray"
 nginx_conf_dir="/etc/nginx/conf/conf.d"
 v2ray_conf="${v2ray_conf_dir}/config.json"
@@ -217,13 +218,14 @@ v2ray_install(){
     if [[ -d /etc/v2ray ]];then
         rm -rf /etc/v2ray
     fi
-    mkdir -p /root/v2ray && cd /root/v2ray
-    # wget  --no-check-certificate https://install.direct/go.sh
-    ## wget http://install.direct/go.sh
-    wget --no-check-certificate https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh
+    mkdir -p /root/v2ray
+    cd /root/v2ray || exit
+    wget -N --no-check-certificate https://raw.githubusercontent.com/liyaojian/V2Ray_ws-tls_bash_onekey/${github_branch}/v2ray.sh
 
-    if [[ -f install-release.sh ]];then
-        bash install-release.sh --force
+    if [[ -f v2ray.sh ]];then
+        rm -rf $v2ray_systemd_file
+        systemctl daemon-reload
+        bash v2ray.sh --force
         judge "安装 V2ray"
     else
         echo -e "${Error} ${RedBG} V2ray 安装文件下载失败，请检查下载地址是否可用 ${Font}"
